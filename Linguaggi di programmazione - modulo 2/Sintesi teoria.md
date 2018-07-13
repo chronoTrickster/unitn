@@ -3,7 +3,7 @@
 [TOC]
 ## Macchine astratte ##
 
-**Macchina astratta M~L~ **: insieme di algoritmi e strutture dati che permettono di memorizzare ed eseguire programmi. 
+**Macchina astratta M~L~**: insieme di algoritmi e strutture dati che permettono di memorizzare ed eseguire programmi. 
 Ad ogni macchina astratta è associato un (solo) linguaggio **L**. 
 Per eseguire un programma in **L**, **M~L~** deve:
 
@@ -35,16 +35,16 @@ Per eseguire un programma in **L**, **M~L~** deve:
 Interpeti e compilatori sono anche loro programmi.
 
 **Definizione di interprete**: interprete per linguaggio **L** scritto in **Lo**
-![1](C:\Users\Kanaan\Desktop\mod 2\1.png)
+![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/1.png)
 
 **Definizione di compilatore:**
-![1](C:\Users\Kanaan\Desktop\mod 2\2.png)
+![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/2.png)
 
 
 
 ---
 
-## Capitolo 6 - I nomi e l'ambiente ##
+## Capitolo 6 - I nomi e l'ambiente 
 
 **Nomi:** sequenza di caratteri usata per denotare qualcos’altro, spesso identificatori (x, pi, f).
 
@@ -79,14 +79,14 @@ Interpeti e compilatori sono anche loro programmi.
 
 ---
 
-## Capitolo 7 - La gestione della memoria ##
+## Capitolo 7 - La gestione della memoria
 
-**Tipi di allocazine della memoria: **
+**Tipi di allocazine della memoria:**
 
 - statica: memoria allocata a tempo di compilazione;
 - dinamica: memoria allocata a tempo d'esecuzione (pila, heap).
 
-**Allocazione statica: ** l'oggetto ha un indirizzo assoluto mantenuto tutta l'esecuzione del programma. *L'allocazione statica non permette ricorsione.*
+**Allocazione statica:** l'oggetto ha un indirizzo assoluto mantenuto tutta l'esecuzione del programma. *L'allocazione statica non permette ricorsione.*
 
 **Allocazione dinamica: pila**
 
@@ -94,7 +94,7 @@ Interpeti e compilatori sono anche loro programmi.
 - Ogni blocco ha un suo RdA.
 - La pila gestiche i RdA.
 
-![1](C:\Users\Kanaan\Desktop\mod 2\3.png)
+![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/3.PNG)
 
 **Allocazione dinamica: heap**
 
@@ -153,7 +153,7 @@ Bisogna evitare lo spreco di memoria (frammentazione).
 
 ???
 
-**Scope dinamico: **con scope dinamico l'associazione nomi-oggetti dipende:
+**Scope dinamico:**con scope dinamico l'associazione nomi-oggetti dipende:
 
 - dal flusso del controllo run-time;
 - dall'ordine con cui i sottoprogrammi sono chiamati.
@@ -183,7 +183,7 @@ Implementazione tramite A-list o CRT, relativi vantaggi e svantaggi.
 
 **Variabile**: un contenitore di valori (modificabili-ish) che ha un nome.
 
-**Assegnamento: **comando che modifica il valore di una variabile.
+**Assegnamento:** comando che modifica il valore di una variabile.
 
 **Modelli di variabile:** 
 
@@ -216,7 +216,7 @@ Implementazione tramite A-list o CRT, relativi vantaggi e svantaggi.
 - *determinata* (`do`, `for`, ...): cicli controllati numericamente, con numero di ripetizioni del ciclo determinate dall'inizio del ciclo;
 - controllata numericamente (?).
 
-**Ricorsione: **una funzione è ricorsiva se definita in termini di se stessa.
+**Ricorsione:** una funzione è ricorsiva se definita in termini di se stessa.
 
 **Ricorsione in coda**.
 
