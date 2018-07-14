@@ -1,6 +1,8 @@
-#### Esercizi
+# Esame teoria
 
-###### La funzione implementata dallo pseudo-codice:
+### Esercizi
+
+##### La funzione implementata dallo pseudo-codice:
 
 ```
 int mistero(int a, int b) {
@@ -14,7 +16,7 @@ int mistero(int a, int b) {
 - [ ] Non può essere implementata per via iterativa
 - [ ] Non usa ricorsione in coda
 
-###### La funzione implementata dallo pseudo-codice:
+##### La funzione implementata dallo pseudo-codice:
 
 ```
 int somma(int a, int b) {
@@ -28,7 +30,7 @@ int somma(int a, int b) {
 - [ ] Usa ricorsione in coda
 - [x] Non usa ricorsione in coda 
 
-###### Si consideri lo pseudo-codice. Qual è il valore di ritorno di f(1, r(1), 1) se i parametri sono passati per nome?
+##### Si consideri lo pseudo-codice. Qual è il valore di ritorno di f(1, r(1), 1) se i parametri sono passati per nome?
 
 ```
 int r(int x) {
@@ -47,7 +49,7 @@ int f(int a, int b, int c) {
 - [ ] Si ha ricorsione infinita
 - [ ] 0
 
-###### Si consideri lo pseudo-codice. Qual è il valore di ritorno di pluto() se i parametri sono passati per valore?
+##### Si consideri lo pseudo-codice. Qual è il valore di ritorno di pluto() se i parametri sono passati per valore?
 ```
 int c = 2;
 int pippo(int a) {
@@ -64,7 +66,7 @@ int pluto(void) {
 - [x] 6
 - [ ] 10
 
-###### Dato il frammento di programma (espresso in pseudo-codice), qual è il valore di ritorno di f1(), assumendo scope statico?
+##### Dato il frammento di programma (espresso in pseudo-codice), qual è il valore di ritorno di f1(), assumendo scope statico?
 ```
 int x, y, z;
 void f3(void) {
@@ -92,7 +94,7 @@ int f1(void) {
 - [ ] 0
 - [ ] -5
 
-###### Se gli array sono memorizzati per colonne e int a\[25][25] è un un array multidimensionale di interi (si assuma che un intero sia memorizzato in 4 byte) con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5][10]?
+##### Se gli array sono memorizzati per colonne e int a\[25][25] è un un array multidimensionale di interi (si assuma che un intero sia memorizzato in 4 byte) con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5][10]?
 
 - [ ] 0x11FE
 - [ ] 0x100F
@@ -100,19 +102,19 @@ int f1(void) {
 - [ ] 0x121C
 - [ ] Nessuna delle altre risposte
 
-###### Se gli array sono memorizzati per colonne e char a\[100]\[100][100] è un un array multidimensionale di caratteri con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[5][10]?
+##### Se gli array sono memorizzati per colonne e char a\[100]\[100][100] è un un array multidimensionale di caratteri con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[5][10]?
 
 - [ ] Nessuna delle altre risposte
 - [ ] 0x18899
 - [ ] 0x51510
 - [ ] 0xD54E
-- [ ] 0x19899
+- [x] 0x19899
 
 ---
 
-#### Teoria
+### Teoria
 
-###### I puntatori di catena statica contenuti in un record di attivazione:
+##### I puntatori di catena statica contenuti in un record di attivazione:
 
 - [ ] Nessuna delle altre risposte
 - [ ] Servono per accedere alle variabili statiche
@@ -120,7 +122,7 @@ int f1(void) {
 - [x] Servono per identificare la zona di memoria in cui è memorizzata una variabile in caso di scope statico
 - [ ] Non esistono puntatori di catena statica in un record d'attivazione
 
-###### Il concetto di variabile modificabile:
+##### Il concetto di variabile modificabile:
 
 - [ ] È l'unico concetto utilizzabile quando si parla di variabili
 - [ ] È imposto dall'architettura di Von Neumann (variabili non modificabili richiederebbero macchine astratte caratterizzate da memoria a sola lettura)
@@ -128,7 +130,7 @@ int f1(void) {
 - [x] È tipico del paradigma di programmazione imperativo
 - [ ] Permette di evitare il fenomeno dell'aliasing
 
-###### Un'entità esprimibile è:
+##### Un'entità esprimibile è:
 
 - [ ] Nessuna delle altre risposte
 - [x] Un'entità che può essere generata come risultato da un'espressione complessa o da una funzione
@@ -136,7 +138,7 @@ int f1(void) {
 - [ ] Un'entità che può essere memorizzata
 - [ ] Una generica entità a cui può essere dato un nome
 
-###### In assenza di ambiente non locale:
+##### In assenza di ambiente non locale:
 
 - [x] Nessuna delle altre risposte
 - [ ] Per implementare funzioni definite ricorsivamente è necessario utilizzare un fixed point combinator
@@ -144,7 +146,7 @@ int f1(void) {
 - [ ] Non si possono implementare algoritmi iterativi o ricorsivi
 - [ ] Non si possono implementare algoritmi iterativi
 
-###### I record di attivazione:
+##### I record di attivazione:
 
 - [ ] Nessuna delle altre risposte
 - [ ] Devono essere esplicitamente allocati e deallocati dal codice del programma che li usa

@@ -1,4 +1,4 @@
-# Linguaggi di Programmazione - mod. 2#
+# Sintesi teoria#
 
 [TOC]
 ## Macchine astratte ##
