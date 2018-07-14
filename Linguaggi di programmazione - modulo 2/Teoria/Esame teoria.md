@@ -1,5 +1,7 @@
 # Esame teoria
 
+[TOC]
+---
 ### Esercizi
 
 ##### La funzione implementata dallo pseudo-codice:
@@ -110,6 +112,14 @@ int f1(void) {
 - [ ] 0xD54E
 - [x] 0x19899
 
+##### Beta-riducendo (λn.λf.λx.f((nf)x))(λf.λx.f(f(f(fx)))) si ottiene:
+
+- [ ] La riduzione non termina
+- [ ] fx
+- [x] λf.λx.fffffx
+- [ ] Nessuna delle altre risposte
+- [ ] λf.λx.f(f(f(fx)))
+
 ---
 
 ### Teoria
@@ -153,3 +163,19 @@ int f1(void) {
 - [x] Possono essere allocati sia sullo stack sia sullo heap (in caso, per esempio, di funzioni di ordine superiore)
 - [ ] Sono necessari solo in presenza di funzioni di ordine superiore
 - [ ] Sono allocati solo sullo heap
+
+##### Un garbage collector:
+
+- [ ] Richiere un'implementazione complessa, usando la tecnica dei tombstone
+- [ ] È implementabile solo in linguaggi di programmazione funzionali
+- [ ] Può essere implementato tramite la tecninca del reference counting, che riesce sempre ad identificare tutta la memoria allocata dinamicamente ma non più utilizzata
+- [ ] È implementabile tramite la tecninca di lucchetti e chiave, che però può causare dei memory leak
+- [x] Nessuna delle altre risposte
+
+##### La ricorsione in coda:
+
+- [ ] Permette di risolvere il problema della ricorsione infinita
+- [ ] Richiede di non scrivere mai la chiamata ricorsiva come ultimo statement di una subroutine
+- [ ] Richiede di non ritornare mai direttamente il valore ritornato da una chiamata ricorsiva
+- [ ] Nessuna delle altre risposte
+- [x] Permette di evitare un'eccessiva crescita della dimensione dello stack
