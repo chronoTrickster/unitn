@@ -248,3 +248,61 @@ Implementazione tramite A-list o CRT, relativi vantaggi e svantaggi.
 
 ## Capitolo 10 - Strutturare i dati
 
+**Tipo di dato:** una collezione di valori (omogenei) dotata di un insieme di operazioni per manipolare tali valori.
+
+**A cosa servono:** 
+
+- a livello di progetto: organizzazo l'informazione;
+- a livello di programma: identificano e prevengono errori;
+- a livello di implementazione: permettono ottimizzazioni.
+
+**Array:** una collezione di dati omogenei che svolge da funzione da un tipo indice (discreto) al tipo degli elementi (un tipo).
+Esistono gli *array multidimensionali*: funzione da tipo indice a tipo array.
+
+**Memorizzazione degli array:** gli elementi sono memorizzati in locazioni contigue:
+
+- ordine di riga: `V[1,1]; V[1,2]; V[1,3]; ...; V[1,10]; V[2,1]; ...`
+- ordine di colonne: `V[1,1]; V[2,1]; V[3,1]; ...; V[10,1]; V[1,2]; ...`
+
+**Calcolo degli indirizzi:** 
+uhhhh vedi slide ? p.90
+
+**Equivalenza tra tipi:** due tipi (T e S) sono equivalenti se sono lo stesso tipo.
+
+- Equivalenza *per nome*: se hanno lo stesso nome.
+- Equivalenza *strutturale*: se hanno la stessa struttura, proprietà:
+  - un nome di tipo è equivalente a se stesso;
+  - se un tipo `T` è introdotto con una definizione `type T = espressione`, `T` è equivalente a `espressione`.
+
+**Compatibilità tra tipi:** due tipi sono compatibili quando oggetti di T possono essere usati in un contesto dove si attende valori di S. T e S sono equivalenti se:
+
+- T e S sono equivalenti;
+- i valori di T sono un sottoinsieme dei valori di S (intervallo);
+- tutte le operazioni sui valori di S sono possibili anche sui valori di T (estensione);
+- i valori di T corrispondono in modo canonico ad alcuni valori di S (int e float);
+- i valori di T possono essere fatti corrispondere ad alcuni valori di S (float e int con troncamento).
+
+**Conversione di tipo:** se T e S sono compatibili è comunque necessaria una conversione, esistono 2 meccanismi:
+
+- conversione *implicita* (coerzione), ci sono 3 possibilità, i tipi sono diversi ma:
+  - con stessi valori e stessa rappresentazione;
+  - con valori diversi, ma stessa rappresentazione nell'intersazione
+  - con valori e rappresentazioni diverse;
+- conversione esplicita (cast): casi analoghi alla coerzione.
+
+**Tombstones:** p.98
+
+**Locks and keys:** p.99
+
+**Garbage collection:** 
+
+- l'utente alloca liberamente la memoria;
+- non è permesso deallocare la memoria;
+- il sistema periodicamente recupera la memoria allocata e non più utilizzabile.
+
+**Garbage collection, mark and sweep:** p.101
+
+---
+
+## Capitolo 11 - Astrazione sui dati
+
