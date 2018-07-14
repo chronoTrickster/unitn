@@ -35,9 +35,11 @@ Per eseguire un programma in **L**, **M~L~** deve:
 Interpeti e compilatori sono anche loro programmi.
 
 **Definizione di interprete**: interprete per linguaggio **L** scritto in **Lo**
+
 ![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/1.png)
 
 **Definizione di compilatore:**
+
 ![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/2.png)
 
 
@@ -288,7 +290,7 @@ uhhhh vedi slide ? p.90
   - con stessi valori e stessa rappresentazione;
   - con valori diversi, ma stessa rappresentazione nell'intersazione
   - con valori e rappresentazioni diverse;
-- conversione esplicita (cast): casi analoghi alla coerzione.
+- conversione *esplicita* (cast): casi analoghi alla coerzione.
 
 **Tombstones:** p.98
 
@@ -305,4 +307,27 @@ uhhhh vedi slide ? p.90
 ---
 
 ## Capitolo 11 - Astrazione sui dati
+
+**Astrazione e modularità:** 
+
+- *componente*: unità di programma;
+- *interfaccia*: tipi e operazioni definiti in un componente che sono visibili fuori del componente stesso;
+- *specifica*: funzionamento inteso del componente, espresso mediante proprietà osservabili attraverso l'interfaccia;
+- *implementazione*: strutture dati e funzioni definiti dentro al componente, non necessariamente visibili da fuori.
+
+**Supporto linguistico per l'astrazione:** 
+
+- astrazione sul controllo: nasconde la realizzazione nel corpo di procedure;
+- astrazione sui dati: nasconde decisioni sulla rappresentazione delle strutture dati e sull'implementazione delle operazioni.
+
+**Principio di incapsulamento:** due implementazioni corrette di un tipo non sono distinguibili dai clienti di quel tipo.
+
+**Moduli:** il costrutto generale per l'information hiding, composto da due parti:
+
+- interfaccia: insieme di nomi e tipi;
+- implementazione: dichiarazioni per ogni nome dell'interfaccia, dichiarazioni aggiuntive nascoste.
+
+---
+
+## Capitolo 12 - Il paradigma orientato agli oggetti
 
