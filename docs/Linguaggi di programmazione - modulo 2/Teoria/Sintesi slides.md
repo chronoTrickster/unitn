@@ -1,5 +1,3 @@
-# Sintesi teoria#
-
 [TOC]
 ## Macchine astratte ##
 

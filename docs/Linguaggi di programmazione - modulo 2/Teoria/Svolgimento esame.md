@@ -1,10 +1,7 @@
-# Spiegazione esame teoria
-
 [TOC]
-
 ## Esercizi
 
-### 1. Ricorsione X
+### 1. Ricorsione
 
 **Ricorsione**: una funzione è ricorsiva se definita in termini di se stessa.
 *p.66*
@@ -44,7 +41,7 @@ Viene passato un riferimento (indirizzo) all'attuale; i riferimenti al formale s
 L'attuale deve essere un L-valore ("una variabile").
 *p.80*
 
-### 5. Scope statico X
+### 5. Scope statico
 
 **La variabile esiste SOLO nel blocco in cui viene creata.**
 
@@ -113,7 +110,7 @@ topolino(){
 }
 ```
 
-### 6. Scope dinamico X
+### 6. Scope dinamico
 
 **La variabile esiste fino alla terminazione del blocco.**
 
@@ -162,7 +159,7 @@ int f1(void) {
 }
 ```
 
-### 7. Array per righe X
+### 7. Array per righe
 
 *NB: char = 1, int = 4, short int = 2*
 
@@ -178,7 +175,7 @@ Se gli array sono memorizzati **per righe** ed int **a\[A]\[B]\[C]** è un array
 INDIRIZZO_BASE + (D*B*C*X) + (D*C*Y) + (D*Z)
 ```
 
-### 8. Array per colonne X
+### 8. Array per colonne
 
 Se gli array sono memorizzati **per colonne** ed int **a\[A]\[B]** è un array multidimensionale di interi (si assuma che la dimensione di un intero sia D byte) con a\[0]\[0] che ha indirizzo INDIRIZZO_BASE, qual è l’indirizzo di a\[X]\[Y]?
 
@@ -191,7 +188,7 @@ Se gli array sono memorizzati **per colonne** ed int **a\[A]\[B]\[C]** è un arr
 ```
 INDIRIZZO_BASE + (D*A*B*Z) + (D*A*Y) + (D*X)
 ```
-### 9. Beta riduzioni X
+### 9. Beta riduzioni
 
 [Stack overflow](https://stackoverflow.com/questions/34140819/lambda-calculus-reduction-steps?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa): Lambdas are like a funtion, they take a function as input, they return a function.
 
@@ -248,88 +245,91 @@ x // sostituisco z con x
 
 1. **( λn.λf.λx.f ( (nf) x) )  ( λf.λx.f (f (f (fx) ) ) )**
 
-(**λn**.λf.λx. f((**n**f)x) ) **(λf.λx.f(f(f(fx))))**
-//sostituisco la 'n' in 'f((nf)x)' con '(λf.λx.f(f(f(fx))))' e rimuovo λn
-
-λf.λx.f(((**λf**.λx. **f**(**f**(**f**(**f**x)))) **f**)x)
-//sostituisco le f con f e rimuovo λf
-
-λf.λx.f(((**λx**. f(f(f(f**x**))))**x**)
-//sostituisco le x con x e rimuovo λx
-
-λf.λx.f(f(f(f(fx))))
-//sistemo le parentesi
-
-λf.λx.fffffx
+   > (**λn**.λf.λx. f((**n**f)x) ) **(λf.λx.f(f(f(fx))))**
+   >
+   > ​	//sostituisco la 'n' in 'f((nf)x)' con '(λf.λx.f(f(f(fx))))' e rimuovo λn
+   >
+   > λf.λx.f(((**λf**.λx. **f**(**f**(**f**(**f**x)))) **f**)x)
+   >
+   > ​	//sostituisco le f con f e rimuovo λf
+   >
+   > λf.λx.f(((**λx**. f(f(f(f**x**))))**x**)
+   >
+   > ​	//sostituisco le x con x e rimuovo λx
+   >
+   > λf.λx.f(f(f(f(fx))))
+   >
+   > ​	//sistemo le parentesi
+   >
+   > λf.λx.fffffx
 
 2. **(λn.λm.λf.λx.(nf)((mf)x))(λf.λx.ffffx)(λf.λx.fx)**
 
-(**λn.**λm.λf.λx. (**n**f)((mf)x) ) **(λf.λx.ffffx)** (λf.λx.fx)
-
-(λm.λf.λx. ( (**λf**.λx.**ffff**x) **f**)((mf)x) )  (λf.λx.fx)
-
-(λm.λf.λx. ( (**λx**.ffff**x**) ) **((mf)x)** )  (λf.λx.fx)
-
-(λm.λf.λx. ( (ffff ((mf)x) ) ) )  (λf.λx.fx)
-
-(**λm**.λf.λx.ffff**m**fx)  **(λf.λx.fx)**
-
-(λf.λx.ffff(**λf**.λx.**f**x)**f**x)  
-
-(λf.λx.ffff(**λx**.f**x**)**x**)  
-
-(λf.λx.ffff(fx))  
-
-**λf.λx.fffffx** 
+   > (**λn.**λm.λf.λx. (**n**f)((mf)x) ) **(λf.λx.ffffx)** (λf.λx.fx)
+   >
+   > (λm.λf.λx. ( (**λf**.λx.**ffff**x) **f**)((mf)x) )  (λf.λx.fx)
+   >
+   > (λm.λf.λx. ( (**λx**.ffff**x**) ) **((mf)x)** )  (λf.λx.fx)
+   >
+   > (λm.λf.λx. ( (ffff ((mf)x) ) ) )  (λf.λx.fx)
+   >
+   > (**λm**.λf.λx.ffff**m**fx)  **(λf.λx.fx)**
+   >
+   > (λf.λx.ffff(**λf**.λx.**f**x)**f**x)  
+   >
+   > (λf.λx.ffff(**λx**.f**x**)**x**)  
+   >
+   > (λf.λx.ffff(fx))  
+   >
+   > **λf.λx.fffffx** 
 
 3. **(λn.λm.λf.λx.(nf)((mf)x))(λf.λx.fx)(λf.λx.x)**
 
-(**λn**.λm.λf.λx.(**n**f)((mf)x)) **(λf.λx.fx)** (λf.λx.x)
-
-(λm.λf.λx.( (**λf**.λx.**f**x)**f**) ((mf)x)) (λf.λx.x)
-
-(λm.λf.λx.( (**λx**.f**x**) **((mf)x)**) (λf.λx.x)
-
-(**λm**.λf.λx.f**m**fx) **(λf.λx.x)**
-
-(λf.λx.f(**λf**.λx.x)**f**x) 
-
-...
-
-**λf.λx.fx**
+   > (**λn**.λm.λf.λx.(**n**f)((mf)x)) **(λf.λx.fx)** (λf.λx.x)
+   >
+   > (λm.λf.λx.( (**λf**.λx.**f**x)**f**) ((mf)x)) (λf.λx.x)
+   >
+   > (λm.λf.λx.( (**λx**.f**x**) **((mf)x)**) (λf.λx.x)
+   >
+   > (**λm**.λf.λx.f**m**fx) **(λf.λx.x)**
+   >
+   > (λf.λx.f(**λf**.λx.x)**f**x) 
+   >
+   > **λf.λx.fx**
 
 4. **(λa.((aλb.λc.c)λd.λe.d))(λf.λg.f)** ????
+
 5. **(λx.xy)(λz.zx)(λz.zx)**
 
-(**λx**.**x**y)**(λz.zx)**(λz.zx)
+   > (**λx**.**x**y)**(λz.zx)**(λz.zx)
+   >
+   > ((**λz**.**z**x)**y**)(λz.zx)
+   >
+   > yx(λz.zx)
 
-((**λz**.**z**x)**y**)(λz.zx)
+6. **((λa.aaa)(λb.b))(λc.c)**
 
-yx(λz.zx)
+   > ((**λa**.**aaa**)**(λb.b)**)(λc.c)
+   >
+   > ((**λb**.**b**)**(λb.b)**(λb.b))(λc.c)
+   >
+   > ((**λb**.**b**)**(λb.b)**)(λc.c)
+   >
+   > (**λb**.**b**)**(λc.c)**
+   >
+   > *(λc.c)**
 
-7. **((λa.aaa)(λb.b))(λc.c)**
+7. **(λa.aaa)((λb.b)(λc.c))**
 
-((**λa**.**aaa**)**(λb.b)**)(λc.c)
+   > (**λa**.**aaa**) **((λb.b)(λc.c))**
+   >
+   > ((**λb**.**b**)**(λc.c)**) ((λb.b)(λc.c)) ((λb.b)(λc.c))
+   >
+   > (λc.c)(λc.c)(λc.c)
+   >
+   > **(λc.c)**
 
-((**λb**.**b**)**(λb.b)**(λb.b))(λc.c)
-
-((**λb**.**b**)**(λb.b)**)(λc.c)
-
-(**λb**.**b**)**(λc.c)**
-
-**(λc.c)**
-
-8. **(λa.aaa)((λb.b)(λc.c))**
-
-(**λa**.**aaa**) **((λb.b)(λc.c))**
-
-((**λb**.**b**)**(λc.c)**) ((λb.b)(λc.c)) ((λb.b)(λc.c))
-
-(λc.c)(λc.c)(λc.c)
-
-**(λc.c)**
-
-
+   
 
 
 

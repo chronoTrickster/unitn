@@ -1,5 +1,3 @@
-# Esame teoria
-
 [TOC]
 ## Note
 
