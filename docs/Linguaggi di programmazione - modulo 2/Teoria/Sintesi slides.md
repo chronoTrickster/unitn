@@ -34,11 +34,11 @@ Interpeti e compilatori sono anche loro programmi.
 
 **Definizione di interprete**: interprete per linguaggio **L** scritto in **Lo**
 
-![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/1.png)
+![Definizione di interprete](https://github.com/FakeKanaan/unitn/blob/master/docs/Linguaggi%20di%20programmazione%20-%20modulo%202/media/1.png)
 
 **Definizione di compilatore:**
 
-![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/2.png)
+![Definizione di compilatore](https://github.com/FakeKanaan/unitn/blob/master/docs/Linguaggi%20di%20programmazione%20-%20modulo%202/media/2.png)
 
 
 
@@ -94,7 +94,7 @@ Interpeti e compilatori sono anche loro programmi.
 - Ogni blocco ha un suo RdA.
 - La pila gestiche i RdA.
 
-![1](https://github.com/FakeKanaan/unitn/blob/master/Linguaggi%20di%20programmazione%20-%20modulo%202/img/3.PNG)
+![Allocazione dinamica: pila](https://github.com/FakeKanaan/unitn/blob/master/docs/Linguaggi%20di%20programmazione%20-%20modulo%202/media/3.png)
 
 **Allocazione dinamica: heap**
 
