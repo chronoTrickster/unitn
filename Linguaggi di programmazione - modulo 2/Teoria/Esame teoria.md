@@ -1,21 +1,35 @@
 # Esame teoria
 
 [TOC]
-### Note
+## Note
 
-- 30 e 38 sono uguali
-- 2 e 44 sono uguali
+- 30 = 38
+- 2 = 44 
+- 47 = 52 
+- 41 = 53 = 60
+- 49 = 56
+- 12 = 66
+- 62 = 67
+- 40 = 68
+- 51 = 69
+- 65 = 71
+- 78 = 83
+- 82 = 88
+- 74 = 89
 
 ---
 
-### Esercizi
+## Esercizi
+
+### Ricorsione
 
 #### La funzione implementata dallo pseudo-codice:
 
 ```
 int mistero(int a, int b) {
-    if (b == 0) return a;
-    return mistero(a / 2, b - 1);
+	if (b == 0) 
+    	return a;
+	return mistero(a / 2, b - 1);
 }
 ```
 - [ ] Può causare una crescità incontrollata dello stack
@@ -28,17 +42,166 @@ int mistero(int a, int b) {
 
 ```
 int somma(int a, int b) {
-    if (a == 0) return b;
+    if (a == 0) 
+    	return b;
     return somma(a - 1, b) + 1;
 }
 ```
 - [ ] Nessuna delle altre risposte
 - [ ] Non può essere implementata per via iterativa
-- [ ] Cause sempre ricorsione infinita
+- [ ] Causa sempre ricorsione infinita
 - [ ] Usa ricorsione in coda
 - [x] **Non usa ricorsione in coda** 
 
-#### Si consideri lo pseudo-codice. Qual è il valore di ritorno di f(1, r(1), 1) se i parametri sono passati per nome?
+#### La funzione implementata dallo pseudo-codice:
+
+```
+int somma(int a, int b) {
+      if (a == 0)
+          return b;
+      return somma(a - 1, b + 1);
+}
+```
+
+- [ ] Non usa ricorsione in coda
+- [ ] Non può essere implementata per via iterativa
+- [ ] Causa sempre ricorsione infinita
+- [x] **Usa ricorsione in coda**
+
+### Passaggio per valore
+
+#### Qual è il valore di ritorno di pluto() se i parametri sono passati per valore?
+```
+int c = 2;
+int pippo(int a) {
+    c = c + 2;
+    return a * 2;
+}
+int pluto(void) {
+    return(pippo(c + 1));
+}
+```
+- [ ] Nessuna delle altre risposte
+- [ ] Dipende dal tipo di scope (statico o dinamico) utilizzato
+- [ ] Non è possibile passare c+1 per valore
+- [x] **6**
+- [ ] 10
+
+#### Qual è il valore di ritorno di pluto() se i paramentri sono passati per valore?
+
+```
+int b = 666;
+int pippo(int x) {
+	x = 666;
+	b = 1;
+	return x / 2;
+}
+int pluto(void) {
+	int a, c;
+	a = b / 333;
+	c = pippo(a);
+	return a + c;
+}
+```
+
+- [x] **Nessuna delle altre risposte**
+- [ ] 1
+- [ ] 3
+- [ ] 0
+- [ ] Dipende dal tipo di scope utilizzato
+- [ ] 666
+- [ ] 999
+- [ ] 333
+
+#### Qual è il valore di ritorno di f3(10, f4(0)) se i parametri sono passati per valore?
+
+```
+int f4(int x) {
+	return 1 / x;
+}
+int f3(int a, int b) {
+	if (a > 1)
+		return a;
+	else
+		return b;
+}
+```
+
+- [ ] 10
+- [ ] 1
+- [ ] Non è possibile dirlo senza conoscere il tipo di scope utilizzato
+- [ ] Non è possibile passare f4(0) per valore
+- [x] **Nessuna delle altre risposte**
+
+#### Qual è il valore di ritorno di f1() se i paramentri sono passati per valore?
+
+```
+int i = 0;
+int x[10];
+int f2(int z) {
+	i = i / 2;
+	return z - i;
+}
+int f1(void) {
+	int y;
+	i = 4;
+	x[0] = 1;
+	x[1] = 0;
+    x[2] = 2;
+    x[3] = 4;
+    x[4] = 6;
+    y = f2(x[i]);
+    return y + i;
+}
+```
+
+- [ ] 0
+- [ ] 2
+- [ ] 4
+- [ ] Dipende dal tipo di scope utilizzato
+- [x] **Nessuna delle altre risposte**
+
+#### Qual è il valore di ritorno di f(1, r(1), 1) se i parametri sono passati per valore?
+
+```
+int r(int x) {
+	return r(x - 1);
+}
+int f(int a, int b, int c) {
+	if (c == 1) 
+		return a; 
+	else 
+		return b;
+}
+```
+
+- [x] **Si ha ricorsione infinita**
+- [ ] 1
+- [ ] 0
+- [ ] Non è possibile dirlo senza conoscere il tipo di scope utilizzato
+
+### Passaggio per nome
+
+#### Qual è il valore di ritorno di pluto() se i parametri sono passati per nome?
+
+```
+int c = 2;
+int pippo(int a) {
+    c = c + 2;
+    return a * 2;
+}
+int pluto(void) {
+    return(pippo(c + 1));
+}
+```
+
+- [ ] Nessuna delle altre risposte
+- [ ] Dipende dal tipo di scope (statico o dinamico) utilizzato
+- [ ] 6
+- [x] **10**
+- [ ] 4
+
+#### Qual è il valore di ritorno di f(1, r(1), 1) se i parametri sono passati per nome?
 
 ```
 int r(int x) {
@@ -57,24 +220,50 @@ int f(int a, int b, int c) {
 - [ ] Si ha ricorsione infinita
 - [ ] 0
 
-#### Si consideri lo pseudo-codice. Qual è il valore di ritorno di pluto() se i parametri sono passati per valore?
+#### Qual è il valore di ritorno di pluto() se i parametri sono passato per nome?
+
+```
+int b = 666;
+int pippo(int x) {
+	x = 666; b = 1;
+	return x / 2;
+}
+int pluto(void) {
+	int a, c;
+	a = b / 333;
+	c = pippo(a);
+	return a + c;
+}
+```
+
+- [ ] Non è possibile passare a per nome
+- [ ] Dipende dal tipo di scope utilizzato
+- [ ] 335
+- [x] **999**
+
+### Passaggio per riferimento
+
+#### Qual è il valore di ritorno di pluto() se i parametri sono passati per riferimento?
+
 ```
 int c = 2;
 int pippo(int a) {
-    c = c + 2;
-    return a * 2;
+	c = c + 2;
+	return a * 2;
 }
 int pluto(void) {
-    return(pippo(c + 1));
+	return(pippo(c + 1));
 }
 ```
-- [ ] Nessuna delle altre risposte
-- [ ] Dipende dal tipo di scope (statico o dinamico) utilizzato
-- [ ] Non è possibile passare c+1 per valore
-- [x] **6**
-- [ ] 10
 
-#### Dato il frammento di programma (espresso in pseudo-codice), qual è il valore di ritorno di f1(), assumendo scope statico?
+- [ ] Dipende dal tipo di score utilizzato
+- [ ] 10
+- [x] **Non è possibile passare c+1 per riferimento**
+- [ ] 6
+
+### Scope statico
+
+#### Qual è il valore di ritorno di f1(), assumendo scope statico?
 ```
 int x, y, z;
 void f3(void) {
@@ -102,7 +291,159 @@ int f1(void) {
 - [ ] 0
 - [ ] -5
 
-#### 26. Se gli array sono memorizzati per colonne e int a\[25][25] è un un array multidimensionale di interi (si assuma che un intero sia memorizzato in 4 byte) con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5][10]?
+#### Qual è il valore di ritorno di topolino(), assumendo scope statico?
+
+```
+  int x, y;
+  void pippo(void) {
+      x = 8;
+      y = 4;
+  }
+  void pluto(void) {
+      int y;
+      pippo();
+      y = 3;
+  }
+  int topolino(void) {
+      int x, z;
+      x = 5;
+      y = 15;
+      z = x + y;
+      pluto();
+      return z - y - x;
+  }
+```
+
+- [ ] Non è possiblie dirlo
+- [ ] 0
+- [ ] -3
+- [x] **11**
+
+#### Qual è il valore di ritorno di topolino(), assumendo scope statico?
+
+```
+  int x, y, z;
+  void minni(void) {
+      x = 4;
+      y = 8;
+  }
+  void paperino(void) {
+      int y;
+      minni();
+      y = 1;
+      z = 666;
+  }
+  int topolino(void) {
+      int x;
+      x = 5;
+      y = 15;
+      z = x + y;
+      paperino();
+      return z - y - x;
+  }
+```
+
+- [ ] -3
+- [ ] 0
+- [ ] 14
+- [ ] Non è possibile dirlo
+- [x] **Nessuna delle altre risposte**
+
+#### Quanto vale la variabile globale c dopo aver eseguito topolino(), assumendo scope statico?
+
+```
+int a, b, c;
+void pippo(void) {
+	int a;
+	a = 6;
+	b = 5;
+}
+void pluto(void) {
+	int c;
+	int b;
+	pippo();
+	c = 3;
+	a = 4;
+}
+void topolino(void) {
+	int a;
+	a = 1;
+	b = 10;
+	pluto();
+	c = a + b;
+}
+```
+
+- [x] **6**
+- [ ] 14
+- [ ] 3
+- [ ] Non è possibile dirlo
+
+### Scope dinamico
+
+#### Quanto vale la variabile globale c dopo aver eseguito topolino(), assumendo scope dinamico?
+
+```
+int a, b, c;
+void pippo(void) {
+	int a;
+	a = 6;
+	b = 5;
+}
+void pluto(void) {
+	int c;
+	int b;
+	pippo();
+	c = 3;
+	a = 4;
+}
+void topolino(void) {
+	int a;
+	a = 1;
+	b = 10;
+	pluto();
+	c = a + b;
+}
+```
+
+- [x] **14**
+- [ ] 3
+- [ ] 6
+- [ ] Non è possibile dirlo
+
+#### Qual è il valore di ritorno di f1(), assumendo scope dinamico?
+
+```
+int x, y, z;
+void f3(void) {
+	x = 0;
+	y = 5;
+}
+void f2(void) {
+	int y;
+	f3();
+	y = 0;
+	z = 10;
+}
+int f1(void) {
+	int x;
+	x = -5;
+	y = 10;
+	z = x + y;
+	f2();
+	return z - y - x;
+}
+```
+
+- [ ] 5
+- [x] **0**
+- [ ] -5
+- [ ] Non è possibile dirlo
+- [ ] -1
+
+### Array per colonne
+
+#### Se gli array sono memorizzati per colonne e int a\[25]\[25] è un un array multidimensionale di interi (si assuma che un intero sia memorizzato in 4 byte) con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[10]?
 
 - [ ] 0x11FE
 - [ ] 0x100F
@@ -110,7 +451,7 @@ int f1(void) {
 - [ ] 0x121C
 - [ ] Nessuna delle altre risposte
 
-#### 21. Se gli array sono memorizzati per colonne e char a\[100]\[100][100] è un un array multidimensionale di caratteri con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[5][10]?
+#### Se gli array sono memorizzati per colonne e char a\[100]\[100]\[100] è un un array multidimensionale di caratteri con a\[0]\[0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[5]\[10]?
 
 - [ ] Nessuna delle altre risposte
 - [ ] 0x18899
@@ -118,15 +459,7 @@ int f1(void) {
 - [ ] 0xD54E
 - [x] **0x19899**
 
-#### 3. Se gli array sono memorizzati per righe e int a\[100][100] è un array multidimensionale di interi (si assuma che la dimensione di un intero sia 4 byte) con a\[0][0] che ha indirizzo 0x5000, qual è l'indirizzo di a\[5][10]?
-
-- [x] **0x57F8** 
-- [ ] Nessuna delle altre risposte
-- [ ] 0x53ED 
-- [ ] 0x5510 
-- [ ] 0x51FE 
-
-#### 12. Se gli array sono memorizzati per colonne ed int a\[100][100] è un array multidimensionale di interi (si assuma che la dimensione di un intero sia 4 byte)con a\[0][0] che ha indirizzo 0x5000, qual è l'indirizzo di a\[5][10]?
+#### Se gli array sono memorizzati per colonne ed int a\[100]\[100] è un array multidimensionale di interi (si assuma che la dimensione di un intero sia 4 byte)con a\[0]\[0] che ha indirizzo 0x5000, qual è l'indirizzo di a\[5]\[10]?
 
 - [ ] 0x5510 
 - [ ] 0x53ED
@@ -134,29 +467,21 @@ int f1(void) {
 - [ ] 0x500F
 - [ ] 0x41FE 
 
-#### 18. Se gli array sono memorizzati per righe e char a\[100]\[100][100] è un un array multidimensionale di caratteri con a\[0][0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[5][10]?
-
-- [ ] Nessuna delle altre risposte 
-- [ ] 0x51510 
-- [ ] 0xC54E
-- [x] **0xD54E**
-- [ ] 0x50510
-
-#### 36. Se gli array sono memorizzati per colonne ed short int a\[100][100] è un array multidimensionale di interi corti (si assuma che la dimensione di uno short int sia 2 byte) con a\[0][0] che ha indirizzo 0x4100, qual è l'indirizzo di a\[5][10]?
+#### Se gli array sono memorizzati per colonne ed short int a\[100]\[100] è un array multidimensionale di interi corti (si assuma che la dimensione di uno short int sia 2 byte) con a\[0]\[0] che ha indirizzo 0x4100, qual è l'indirizzo di a\[5]\[10]?
 
 - [x] **0x48DA** 
 - [ ] 0x4510
 - [ ] 0x47DA
 - [ ] 0x41FE
 
-#### 46. Se gli array sono memorizzati per colonne e char a\[100][100] è un array multidimensionale di caratteri con a\[0][0] che ha indirizzo 0x1100, qual è l'indirizzo di a\[5][10]?
+#### Se gli array sono memorizzati per colonne e char a\[100]\[100] è un array multidimensionale di caratteri con a\[0]\[0] che ha indirizzo 0x1100, qual è l'indirizzo di a\[5]\[10]?
 
 - [x] **0x14ED** 
 - [ ] 0x24ED
 - [ ] 0x21FE
 - [ ] 0x22FE
 
-#### 50. Se gli array sono memorizzati per colonne ed short int a\[100][100] è un array multidimensionale di interi corti (si assuma che la dimensione di uno short int sia 2 byte) con a\[0][0] che ha indirizzo 0x4100, qual è l’indirizzo di a\[5][10]?:
+#### Se gli array sono memorizzati per colonne ed short int a\[100]\[100] è un array multidimensionale di interi corti (si assuma che la dimensione di uno short int sia 2 byte) con a\[0]\[0] che ha indirizzo 0x4100, qual è l’indirizzo di a\[5]\[10]?
 
 - [x] **Nessuna delle altre risposte** 
 - [ ] 0x41FE 
@@ -165,7 +490,42 @@ int f1(void) {
 - [ ] 0x4510
 - [ ] 0x43ED
 
-#### 15. Beta-riducendo (λn.λf.λx.f((nf)x))(λf.λx.f(f(f(fx)))) si ottiene:
+### Array per righe
+
+#### Se gli array sono memorizzati per righe e int a\[100]\[100] è un array multidimensionale di interi (si assuma che la dimensione di un intero sia 4 byte) con a\[0]\[0] che ha indirizzo 0x5000, qual è l'indirizzo di a\[5]\[10]?
+
+- [x] **0x57F8** 
+- [ ] Nessuna delle altre risposte
+- [ ] 0x53ED 
+- [ ] 0x5510 
+- [ ] 0x51FE 
+
+#### Se gli array sono memorizzati per righe e char a\[100]\[100]\[100] è un un array multidimensionale di caratteri con a\[0]\[0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[5]\[10]?
+
+- [ ] Nessuna delle altre risposte 
+- [ ] 0x51510 
+- [ ] 0xC54E
+- [x] **0xD54E**
+- [ ] 0x50510
+
+#### Se gli array sono memorizzati per righe ed int a\[100]\[100] è un un array multidimensionale di interi (si assuma che la dimensione di un intero sia 4 byte) con a\[0]\[0] che ha indirizzo 0x1000, qual è l’indirizzo di a\[5]\[10]?
+
+- [x] **Nessuna delle altre risposte** 
+- [ ] 0x100F 
+- [ ] 0x13ED
+- [ ] 0x11FE
+- [ ] 0x1510
+
+#### Se gli array sono memorizzati per righe e char a\[100]\[100] è un array multidimensionale di caratteri con a\[0]\[0] che ha indirizzo 0x2000, qual è l’indirizzo di a\[5]\[10]?
+
+- [x] 0x21FE
+- [ ] 0x200F
+- [ ] 0x23ED 
+- [ ] 0x2510 
+
+### Beta riduzioni
+
+#### (λn.λf.λx.f((nf)x))(λf.λx.f(f(f(fx))))
 
 - [ ] La riduzione non termina
 - [ ] fx
@@ -173,7 +533,7 @@ int f1(void) {
 - [ ] Nessuna delle altre risposte
 - [ ] λf.λx.f(f(f(fx)))
 
-#### 1. Beta-riducendo (λn.λm.λf.λx.(nf)((mf)x))(λf.λx.ffffx)(λf.λx.fx) si ottiene:
+#### (λn.λm.λf.λx.(nf)((mf)x))(λf.λx.ffffx)(λf.λx.fx)
 
 - [ ] λf.λx.ffffx 
 - [ ] f
@@ -182,7 +542,7 @@ int f1(void) {
 - [ ] x
 - [x] **λf.λx.fffffx** 
 
-#### 4. Beta-riducendo (λn.λm.λf.λx.(nf)((mf)x))(λf.λx.fx)(λf.λx.x) si ottiene:
+#### (λn.λm.λf.λx.(nf)((mf)x))(λf.λx.fx)(λf.λx.x)
 
 - [ ] λf.λx.f(f(f(fx))) 
 - [x] **λf.λx.fx** 
@@ -190,21 +550,21 @@ int f1(void) {
 - [ ] x
 - [ ] fx
 
-#### 27. Beta-riducendo (λa.((aλb.λc.c)λd.λe.d))(λf.λg.f) si ottiene:
+#### (λa.((aλb.λc.c)λd.λe.d))(λf.λg.f)
 
 - [x] **λb.λc.c** 
 - [ ]  La riduzione non termina 
 - [ ] c
 - [ ] λb.λc.b 
 
-#### 29. Beta-riducendo (λx.xy)(λz.zx)(λz.zx) si ottiene:
+#### (λx.xy)(λz.zx)(λz.zx)
 
 - [x] **yx(λz.zx)** 
 - [ ] (λx.xy)yx
 - [ ] xyz
 - [ ] La riduzione non termina
 
-#### 39. Beta-riducendo (λn.λf.λx.f((nf)x))(λf.λx.ffffx) si ottiene:
+#### (λn.λf.λx.f((nf)x))(λf.λx.ffffx)
 
 - [x] **λf.λx.fffffx** 
 - [ ] fx
@@ -212,21 +572,59 @@ int f1(void) {
 - [ ] La riduzione non termina
 - [ ] λf.λx.ffffffx
 
-#### 40. Beta-riducendo ((λa.aaa)(λb.b))(λc.c) si ottiene:
+#### ((λa.aaa)(λb.b))(λc.c)
 
 - [x] **λc.c** 
 - [ ] λx.xa
 - [ ] aaa
 - [ ] La riduzione non termina
 
-#### 42. Beta-riducendo (λa.aaa)((λb.b)(λc.c)) si ottiene:
+#### (λa.aaa)((λb.b)(λc.c))
 
 - [x] **λa.a** 
 - [ ] aaa
 - [ ] λx.xa
 - [ ] La riduzione non termina
 
-#### 14. Nella sostituzione (λa.abc)[arrg/c]
+#### (λd.((λa.abc)(bc)))(λy.xyz)
+
+- [x] **bcbc** 
+- [ ] λb.bba
+- [ ] λa.abc
+- [ ] La riduzione non termina
+
+#### (λn.λf.λx.f((nf)x))(λf.λx.f(f(f(fx))))
+
+- [x] **λf.λx.f(f(f(f(fx))))** 
+- [ ] L’espressione è irriducibile
+- [ ] λf.λx.fffffx
+- [ ] La riduzione non termina
+- [ ] fx
+
+#### (λn.λm.λf.λx.(nf)((mf)x))(λf.λx.fx)(λf.λx.x) 
+
+- [x] **λf.λx.fx** 
+- [ ] x 
+- [ ] λf.λx.ffffffx 
+- [ ] fx 
+- [ ] λf.λx.ffffx 
+
+#### (λa.((aλb.λc.c)λd.λe.d))(λf.λg.g)
+
+- [ ] **λb.λc.b** 
+- [ ] b 
+- [ ] λb.λc.c 
+- [ ] La riduzione non termina 
+
+#### (λa.aab)((λa.aab)(λa.(λb.ba)c)) 
+
+- [x] **Nessuna delle altre risposte** 
+- [ ] aab 
+- [ ] λa.aab 
+- [ ] ccb(ccb)c 
+- [ ] La riduzione non termina
+
+#### Nella sostituzione (λa.abc)[arrg/c]
 
 - [x] **E’ necessario applicare una Alfa-equivalenza per evitare una cattura di variabile**
 - [ ] Viene catturata la variabile c
@@ -236,9 +634,9 @@ int f1(void) {
 
 ---
 
-### Teoria
+## Teoria
 
-#### I puntatori di catena statica contenuti in un record di attivazione:
+#### 64. I puntatori di catena statica contenuti in un record di attivazione:
 
 - [ ] Nessuna delle altre risposte
 - [ ] Servono per accedere alle variabili statiche
@@ -277,14 +675,6 @@ int f1(void) {
 - [x] **Possono essere allocati sia sullo stack sia sullo heap (in caso, per esempio, di funzioni di ordine superiore)**
 - [ ] Sono necessari solo in presenza di funzioni di ordine superiore
 - [ ] Sono allocati solo sullo heap
-
-#### Un garbage collector:
-
-- [ ] Richiere un'implementazione complessa, usando la tecnica dei tombstone
-- [ ] È implementabile solo in linguaggi di programmazione funzionali
-- [ ] Può essere implementato tramite la tecninca del reference counting, che riesce sempre ad identificare tutta la memoria allocata dinamicamente ma non più utilizzata
-- [ ] È implementabile tramite la tecnica di lucchetti e chiave, che però può causare dei memory leak
-- [x] **Nessuna delle altre risposte**
 
 #### 2. La ricorsione in coda:
 
@@ -447,10 +837,15 @@ int f1(void) {
 
 #### 41. L'ambiente (o environment) è:
 
-- [x] **L'insieme delle associazioni (nome, entità denotabile) esistenti in uno specifico punto del programma ed in uno specifico momento durante l'esecuzione di un programma**
+- [x] **L'insieme delle associazioni (nome, oggetto (entità?) denotabile) esistenti in uno specifico punto del programma ed in uno specifico momento durante l'esecuzione di un programma**
+
 - [ ] L'insieme dei valori che una variabile assume durante l'esecuzione di un programma
+
 - [ ] Un insieme di associazioni (nome, valore) definite staticamente durante lo sviluppo di un programma
+
 - [ ] Una lista di coppie (nome, tipo) che permette di accedere alle variabili di un programma
+
+- [ ] L’insieme delle associazioni (variabile, valore) esistenti in uno specifico punto del programma ed in uno specifico momento durante l’esecuzione di un programma 
 
 #### 43. Si può dire che una macchina astratta che capisce il linguaggio Java non sia implementata in modo puramente compilativo perché:
 
@@ -466,6 +861,14 @@ int f1(void) {
 - [ ] E’ allocata prima dell’esecuzione del programma. Le entità allocate staticamente possono essere deallocate durante l’esecuzione del programma, per liberare memoria
 - [ ] E’ allocata esplicitamente dal programma a tempo di esecuzione, ma una volta allocata è staticamente legata al programma e non può essere liberata fino alla sua terminazione
 
+#### 65. La memoria gestita dinamicamente:
+
+- [x] **E’ necessaria per implementare la ricorsione**
+- [ ] E’ usata solo in linguaggi interpretati
+- [ ] Non è mai strettamente necessaria, ma permette di ottenere migiori prestazioni
+- [ ] E’ necessaria per implementare l'iterazione
+- [ ] E' necessaria solo per implementare macchine astratte per linguaggi compilati 
+
 #### 47. Un interprete di un linguaggio L scritto in un linguaggio LO è:
 
 - [x] **Un programma scritto nel linguaggio LO che riceve come ingresso un programma PL (espresso nel linguaggio L) ed il suo input I generando lo stesso output che genera PL con input I**
@@ -480,14 +883,39 @@ int f1(void) {
 - [ ] I legami fra nomi ed oggetto possono essere determinati solo a tempo di esecuzione
 - [ ] Non è possibile annidare più blocchi di istruzioni
 
+#### 61. In caso di scope dinamico:
+
+- [ ] Il valore assegnato ad una variabile non può essere modificato
+- [ ] Non è possibile annidare più blocchi di istruzioni
+- [x] **I legami fra nomi ed oggetto possono essere determinati solo a tempo di esecuzione**
+- [ ] I legami fra nomi ed oggetto possono essere determinati semplicemente leggendo il testo di un programma
+
 #### 49. Un garbage collector:
 
 - [x] **Può essere implementato tramite la tecnica detta “mark and sweep”, che riesce sempre ad identificare tutta la memoria allocata dinamicamente ma non più utilizzata**
 - [ ] Richiede un’implementazione complessa, usando la tecnica dei tombstone (pietre tombali)
 - [ ] E’ implementabile solo in linguaggi di programmazione funzionali
 - [ ] E’ implementabile tramite la tecnica di lucchetti e chiavi, che però può causare dei memory leak
+- [ ] Può essere implementato tramite la tecnica del reference counting (contatore dei riferimenti), che riesce sempre ad identificare tutta la memoria allocata dinamicamente ma non più utilizzata
 
+#### 63. Un entità denotabile è:
 
+- [x] **Una generica entità a cui può essere dato un nome** 
+- [ ] Un entità che può essere generata come risultato da un espressione complessa o da una Funzione
+- [ ] Un'entità che ancora non compare nell'ambiente
+- [ ] Un'entità che può essere memorizzata
 
+#### 64. Un entità denotabile può avere un tempo di vita più lungo di quello delle associazionni (fra l'entità ed identificatori) che lo riferiscono:
 
+- [x] **Se l'entità è allocata dinamicamente dallo heap in una subroutine**
+- [ ] Mai
+- [ ] Se l'entità è allocata dinamicamente dallo stack un una subroutine
+- [ ] Se si usa scope dinamico
+
+#### 72. I record d'attivazione:
+
+- [ ] Devono essere esplicitamente allocati e deallocati dal codice del programma che li usa
+- [x] **Possono essere allocati sua sullo stack sia sullo heap (in caso, per esempio, di funzioni di ordine superiore)**
+- [ ] Sono necessari solo in presenza di funzioni di ordine superiore
+- [ ] Sono allocati solo sullo heap
 
